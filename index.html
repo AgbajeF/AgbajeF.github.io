@@ -460,26 +460,41 @@
       white-space: nowrap;
     }
     .exp-bullets {
-      list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 11px;
     }
-    .exp-bullets li {
+    .exp-bullet {
       display: flex;
       gap: 14px;
+      align-items: flex-start;
+    }
+    .exp-bullet-tag {
+      flex-shrink: 0;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 3px 9px;
+      border-radius: 6px;
+      margin-top: 2px;
+      white-space: nowrap;
+    }
+    .tag-ai       { background: rgba(124,58,237,0.1);  color: #6d28d9; }
+    .tag-data     { background: rgba(5,150,105,0.1);   color: #065f46; }
+    .tag-ux       { background: rgba(14,165,233,0.12); color: #0369a1; }
+    .tag-product  { background: rgba(249,115,22,0.1);  color: #c2410c; }
+    .tag-ops      { background: rgba(239,68,68,0.1);   color: #b91c1c; }
+    .tag-docs     { background: rgba(100,116,139,0.1); color: #475569; }
+    .tag-program  { background: rgba(14,165,233,0.12); color: #0369a1; }
+    .tag-lead     { background: rgba(124,58,237,0.1);  color: #6d28d9; }
+    .tag-analytics{ background: rgba(5,150,105,0.1);   color: #065f46; }
+    .tag-strategy { background: rgba(249,115,22,0.1);  color: #c2410c; }
+    .tag-security { background: rgba(8,145,178,0.12);  color: #0e7490; }
+    .exp-bullet-text {
       font-size: 15px;
       color: var(--text-muted);
       line-height: 1.65;
-      align-items: flex-start;
-    }
-    .exp-bullets li::before {
-      content: '';
-      width: 5px; height: 5px;
-      min-width: 5px;
-      background: var(--accent);
-      border-radius: 50%;
-      margin-top: 9px;
     }
     .metric {
       color: #5b21b6;
@@ -859,14 +874,32 @@
           <span style="font-size:12px;font-weight:600;color:var(--text-muted);background:rgba(255,255,255,0.05);border:1px solid var(--border);padding:4px 12px;border-radius:99px;">Product Manager · Full-time · Jan 2025 – Present</span>
           <span style="font-size:12px;font-weight:600;color:var(--text-muted);background:rgba(255,255,255,0.05);border:1px solid var(--border);padding:4px 12px;border-radius:99px;">Consultant · Part-time · May 2024 – Dec 2024</span>
         </div>
-        <ul class="exp-bullets">
-          <li>Conceived and launched an <strong style="color:var(--text)">AI-powered call transcription & scoring</strong> feature that converts conversations into structured performance evaluations, directly improving agent coaching and sales outcomes.</li>
-          <li>Architected an AI-driven lead status automation system that reduced untracked leads from <span class="metric">40% → 16%</span> and introduced a usage-based pricing model to unlock new revenue streams.</li>
-          <li>Spearheaded a year-long UI transformation initiative encompassing system performance, data reliability, and UX enhancements — resulting in measurable improvements across key product metrics.</li>
-          <li>Designed and executed an internal A2P messaging experiment validating SMS behavior with/without vCards on iOS — defining success metrics, use cases, and carrier compliance criteria.</li>
-          <li>Optimized support operations through process improvements and tooling enhancements, cutting response times by <span class="metric metric-green">15–20%</span> and reducing ticket volume by <span class="metric metric-green">18%</span>.</li>
-          <li>Authored detailed technical documentation for engineering and deployment teams, ensuring precise requirement handoffs and accelerating sprint delivery.</li>
-        </ul>
+        <div class="exp-bullets">
+          <div class="exp-bullet">
+            <span class="exp-bullet-tag tag-ai">AI</span>
+            <span class="exp-bullet-text">Conceived and launched an <strong style="color:var(--text)">AI-powered call transcription & scoring</strong> feature that converts conversations into structured performance evaluations, directly improving agent coaching and sales outcomes.</span>
+          </div>
+          <div class="exp-bullet">
+            <span class="exp-bullet-tag tag-data">Data</span>
+            <span class="exp-bullet-text">Architected an AI-driven lead status automation system that reduced untracked leads from <span class="metric">40% → 16%</span> and introduced a usage-based pricing model to unlock new revenue streams.</span>
+          </div>
+          <div class="exp-bullet">
+            <span class="exp-bullet-tag tag-ux">UX</span>
+            <span class="exp-bullet-text">Spearheaded a year-long UI transformation initiative encompassing system performance, data reliability, and UX enhancements — resulting in measurable improvements across key product metrics.</span>
+          </div>
+          <div class="exp-bullet">
+            <span class="exp-bullet-tag tag-product">Product</span>
+            <span class="exp-bullet-text">Designed and executed an internal A2P messaging experiment validating SMS behavior with/without vCards on iOS — defining success metrics, use cases, and carrier compliance criteria.</span>
+          </div>
+          <div class="exp-bullet">
+            <span class="exp-bullet-tag tag-ops">Ops</span>
+            <span class="exp-bullet-text">Optimized support operations through process improvements and tooling enhancements, cutting response times by <span class="metric-green">15–20%</span> and reducing ticket volume by <span class="metric-green">18%</span>.</span>
+          </div>
+          <div class="exp-bullet">
+            <span class="exp-bullet-tag tag-docs">Docs</span>
+            <span class="exp-bullet-text">Authored detailed technical documentation for engineering and deployment teams, ensuring precise requirement handoffs and accelerating sprint delivery.</span>
+          </div>
+        </div>
       </div>
 
       <!-- Accenture -->
@@ -878,14 +911,32 @@
           </div>
           <div class="exp-badge">Jan 2022 — Dec 2023</div>
         </div>
-        <ul class="exp-bullets">
-          <li>Delivered <span class="metric">30+ RFIs</span> and maintained rigorous program documentation, supporting <span class="metric">$3.7M</span> in managed contract budgets with full financial accountability.</li>
-          <li>Directed an offshore team of <span class="metric">12 analysts</span> — aligning priorities, tracking execution, and resolving blockers to maintain consistent delivery quality across engagements.</li>
-          <li>Engineered <strong style="color:var(--text)">Power BI dashboards</strong> that automated reporting workflows, increasing data accuracy and giving leadership real-time visibility into program performance.</li>
-          <li>Contributed to ERP+ strategic planning by defining project timelines, governance guidelines, and milestone outcomes for a multi-phase enterprise initiative.</li>
-          <li>Validated system access for <span class="metric">1,800+ employees</span> during a secure migration, ensuring zero compliance gaps and a seamless transition for end users.</li>
-          <li>Coordinated cross-functional project timelines and provided 30+ hours of call center operational support during critical go-live periods.</li>
-        </ul>
+        <div class="exp-bullets">
+          <div class="exp-bullet">
+            <span class="exp-bullet-tag tag-program">Program</span>
+            <span class="exp-bullet-text">Delivered <span class="metric">30+ RFIs</span> and maintained rigorous program documentation, supporting <span class="metric">$3.7M</span> in managed contract budgets with full financial accountability.</span>
+          </div>
+          <div class="exp-bullet">
+            <span class="exp-bullet-tag tag-lead">Leadership</span>
+            <span class="exp-bullet-text">Directed an offshore team of <span class="metric">12 analysts</span> — aligning priorities, tracking execution, and resolving blockers to maintain consistent delivery quality across engagements.</span>
+          </div>
+          <div class="exp-bullet">
+            <span class="exp-bullet-tag tag-analytics">Analytics</span>
+            <span class="exp-bullet-text">Engineered <strong style="color:var(--text)">Power BI dashboards</strong> that automated reporting workflows, increasing data accuracy and giving leadership real-time visibility into program performance.</span>
+          </div>
+          <div class="exp-bullet">
+            <span class="exp-bullet-tag tag-strategy">Strategy</span>
+            <span class="exp-bullet-text">Contributed to ERP+ strategic planning by defining project timelines, governance guidelines, and milestone outcomes for a multi-phase enterprise initiative.</span>
+          </div>
+          <div class="exp-bullet">
+            <span class="exp-bullet-tag tag-security">Security</span>
+            <span class="exp-bullet-text">Validated system access for <span class="metric">1,800+ employees</span> during a secure migration, ensuring zero compliance gaps and a seamless transition for end users.</span>
+          </div>
+          <div class="exp-bullet">
+            <span class="exp-bullet-tag tag-ops">Ops</span>
+            <span class="exp-bullet-text">Coordinated cross-functional project timelines and provided 30+ hours of call center operational support during critical go-live periods.</span>
+          </div>
+        </div>
       </div>
 
     </div>
