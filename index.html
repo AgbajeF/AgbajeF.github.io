@@ -291,8 +291,8 @@
     .scroll-hint {
       position: absolute;
       bottom: 36px;
-      left: 50%;
-      transform: translateX(-50%);
+      left: 0;
+      right: 0;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -505,20 +505,22 @@
       gap: 11px;
     }
     .exp-bullet {
-      display: flex;
+      display: grid;
+      grid-template-columns: 74px 1fr;
       gap: 14px;
-      align-items: flex-start;
+      align-items: start;
     }
     .exp-bullet-tag {
-      flex-shrink: 0;
       font-size: 10px;
       font-weight: 700;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      padding: 3px 9px;
+      padding: 3px 0;
       border-radius: 6px;
       margin-top: 2px;
       white-space: nowrap;
+      text-align: center;
+      width: 100%;
     }
     .tag-ai       { background: rgba(124,58,237,0.1);  color: #6d28d9; }
     .tag-data     { background: rgba(5,150,105,0.1);   color: #065f46; }
@@ -880,8 +882,8 @@
       /* Experience */
       .exp-card { padding: 24px 20px; }
       .exp-top { flex-direction: column; gap: 10px; }
-      .exp-bullet { gap: 10px; }
-      .exp-bullet-tag { font-size: 9px; padding: 3px 7px; }
+      .exp-bullet { grid-template-columns: 64px 1fr; gap: 10px; }
+      .exp-bullet-tag { font-size: 9px; }
 
       /* Skills */
       .skills-grid { grid-template-columns: 1fr; }
