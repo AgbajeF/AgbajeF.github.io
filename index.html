@@ -784,16 +784,120 @@
       background: var(--border);
     }
 
+    /* ── HAMBURGER ── */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 8px;
+      background: transparent;
+      border: none;
+      transition: background 0.2s;
+    }
+    .nav-hamburger:hover { background: rgba(124,58,237,0.08); }
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ── MOBILE MENU ── */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: var(--nav-h);
+      left: 0; right: 0;
+      background: rgba(240,249,255,0.97);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 16px 20px;
+      z-index: 99;
+      flex-direction: column;
+      gap: 4px;
+      opacity: 0;
+      transform: translateY(-6px);
+      pointer-events: none;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+    .mobile-menu.open {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: all;
+    }
+    .mobile-menu a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      padding: 13px 16px;
+      border-radius: 10px;
+      transition: all 0.2s;
+      display: block;
+    }
+    .mobile-menu a:hover { background: rgba(124,58,237,0.08); color: var(--text); }
+    .mobile-menu .mob-cta {
+      background: var(--gradient);
+      color: #fff !important;
+      text-align: center;
+      margin-top: 8px;
+      font-weight: 700;
+      border-radius: 99px;
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
+      /* Nav */
       nav { padding: 0 20px; }
       .nav-links { display: none; }
-      section { padding: 80px 20px; }
-      .about-grid { grid-template-columns: 1fr; gap: 48px; }
+      .nav-hamburger { display: flex; }
+      .mobile-menu { display: flex; }
+
+      /* Sections */
+      section { padding: 72px 20px; }
+
+      /* Hero */
+      .hero-name { letter-spacing: -2px; }
+      .hero-actions { flex-direction: column; align-items: stretch; max-width: 320px; margin-left: auto; margin-right: auto; }
+      .btn { justify-content: center; }
+
+      /* About */
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .about-photo-wrap { margin: 0 auto 28px; }
+      .about-text { text-align: center; }
+      .section-label { justify-content: center; }
       .stats-grid { grid-template-columns: 1fr 1fr; }
-      .exp-card { padding: 28px 24px; }
-      .exp-top { flex-direction: column; gap: 12px; }
+
+      /* Experience */
+      .exp-card { padding: 24px 20px; }
+      .exp-top { flex-direction: column; gap: 10px; }
+      .exp-bullet { gap: 10px; }
+      .exp-bullet-tag { font-size: 9px; padding: 3px 7px; }
+
+      /* Skills */
+      .skills-grid { grid-template-columns: 1fr; }
+
+      /* Certs */
+      .certs-grid { grid-template-columns: 1fr; }
+
+      /* Education */
+      .edu-card { flex-direction: column; gap: 16px; }
       .edu-loc { margin-left: 0; text-align: left; }
+
+      /* Contact */
+      .contact-links { flex-direction: column; align-items: stretch; max-width: 320px; margin-left: auto; margin-right: auto; }
+      .contact-link { justify-content: center; }
+
+      /* Footer */
       footer { padding: 24px 20px; }
     }
   </style>
@@ -811,8 +915,19 @@
       <li><a href="#certifications">Certifications</a></li>
       <li><a href="#contact" class="nav-cta">Contact</a></li>
     </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#about">About</a>
+  <a href="#experience">Experience</a>
+  <a href="#skills">Skills</a>
+  <a href="#certifications">Certifications</a>
+  <a href="#contact" class="mob-cta">Contact</a>
+</div>
 
 <!-- HERO -->
 <section id="hero">
@@ -1171,7 +1286,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <p>© 2025 Farouk Agbaje · New York, NY · Built with care</p>
+  <p>© 2026 Farouk Agbaje · New York, NY</p>
 </footer>
 
 <script>
@@ -1232,6 +1347,20 @@
         e.preventDefault();
         target.scrollIntoView({ behavior: 'smooth' });
       }
+    });
+  });
+
+  // Hamburger menu
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
     });
   });
 </script>
