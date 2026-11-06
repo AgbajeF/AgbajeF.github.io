@@ -418,25 +418,14 @@
     }
 
     .exp-bullets { display: flex; flex-direction: column; gap: 11px; }
-    .exp-bullet { display: grid; grid-template-columns: 74px 1fr; gap: 14px; align-items: start; }
-    .exp-bullet-tag {
-      font-family: var(--mono);
-      font-size: 9px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase;
-      padding: 3px 0; border-radius: 5px; margin-top: 2px;
-      white-space: nowrap; text-align: center; width: 100%;
-      border: 1px solid;
+    .exp-bullet { display: flex; gap: 10px; align-items: flex-start; }
+    .exp-bullet::before {
+      content: '';
+      width: 4px; height: 4px; min-width: 4px;
+      background: var(--cyan); border-radius: 50%;
+      margin-top: 8px;
+      box-shadow: 0 0 6px var(--cyan);
     }
-    .tag-ai       { background: rgba(176,64,255,0.12);  color: #d380ff; border-color: rgba(176,64,255,0.3); }
-    .tag-data     { background: rgba(0,230,118,0.1);    color: #00e676; border-color: rgba(0,230,118,0.3); }
-    .tag-ux       { background: rgba(0,217,255,0.1);    color: #00d9ff; border-color: rgba(0,217,255,0.3); }
-    .tag-product  { background: rgba(255,140,66,0.12);  color: #ff9144; border-color: rgba(255,140,66,0.3); }
-    .tag-ops      { background: rgba(255,77,109,0.1);   color: #ff6e88; border-color: rgba(255,77,109,0.3); }
-    .tag-docs     { background: rgba(140,160,200,0.1);  color: #8ca0c8; border-color: rgba(140,160,200,0.3); }
-    .tag-program  { background: rgba(0,217,255,0.1);    color: #00d9ff; border-color: rgba(0,217,255,0.3); }
-    .tag-lead     { background: rgba(176,64,255,0.12);  color: #d380ff; border-color: rgba(176,64,255,0.3); }
-    .tag-analytics{ background: rgba(0,230,118,0.1);    color: #00e676; border-color: rgba(0,230,118,0.3); }
-    .tag-strategy { background: rgba(255,140,66,0.12);  color: #ff9144; border-color: rgba(255,140,66,0.3); }
-    .tag-security { background: rgba(0,207,207,0.1);    color: #00cfcf; border-color: rgba(0,207,207,0.3); }
 
     .exp-bullet-text { font-size: 15px; color: var(--text-muted); line-height: 1.65; }
     .metric {
@@ -725,8 +714,7 @@
       .stats-grid { grid-template-columns: 1fr 1fr; }
       .exp-card { padding: 22px 18px; }
       .exp-top { flex-direction: column; gap: 10px; }
-      .exp-bullet { grid-template-columns: 60px 1fr; gap: 10px; }
-      .exp-bullet-tag { font-size: 8px; }
+      .exp-bullet { gap: 10px; }
       .skills-grid { grid-template-columns: 1fr; }
       .certs-grid { grid-template-columns: 1fr; }
       .edu-card { flex-direction: column; gap: 16px; }
@@ -867,31 +855,31 @@
         </div>
         <div class="exp-bullets">
           <div class="exp-bullet">
-            <span class="exp-bullet-tag tag-ai">AI</span>
+
             <span class="exp-bullet-text">Conceived and launched <strong style="color:var(--text)">Call Guru</strong>, an AI call transcription and scoring product that turns calls into agent scorecards and AI summaries; now leading <strong style="color:var(--text)">Admin View</strong>, team-level performance dashboards for managers.</span>
           </div>
           <div class="exp-bullet">
-            <span class="exp-bullet-tag tag-data">Data</span>
+
             <span class="exp-bullet-text">Found that <span class="metric">4 in 10 leads</span> were going untracked and shipped <strong style="color:var(--text)">Lead Guru</strong>, an AI lead status automation that cut untracked leads from <span class="metric">40%</span> to <span class="metric-green">16%</span>.</span>
           </div>
           <div class="exp-bullet">
-            <span class="exp-bullet-tag tag-product">Product</span>
+
             <span class="exp-bullet-text">Owned pricing for AI features, including add-on pricing and a new usage-based model for Lead Guru that opened a new revenue stream.</span>
           </div>
           <div class="exp-bullet">
-            <span class="exp-bullet-tag tag-ux">UX</span>
+
             <span class="exp-bullet-text">Led a year-long UI overhaul covering performance, data reliability, and UX; ran A/B tests on UI/UX variants, designed the new Waiting Room experience, and ran bug triage and release validation to keep customer workflows stable.</span>
           </div>
           <div class="exp-bullet">
-            <span class="exp-bullet-tag tag-analytics">Analytics</span>
+
             <span class="exp-bullet-text">Track adoption with in-house analytics tools, SQL, and AI-assisted reporting; partnered with Customer Success on user feedback to cut support response times <span class="metric-green">15–20%</span> and ticket volume <span class="metric-green">18%</span>.</span>
           </div>
           <div class="exp-bullet">
-            <span class="exp-bullet-tag tag-ops">Ops</span>
+
             <span class="exp-bullet-text">Shipped OAuth email SSO, an Admin Voicemail Inbox, and a unified call history report; now extending AI from voice into SMS and email.</span>
           </div>
           <div class="exp-bullet">
-            <span class="exp-bullet-tag tag-docs">Docs</span>
+
             <span class="exp-bullet-text">Prototype ideas in Claude Design so stakeholders and customers can react to a working concept before Engineering builds, and write PRDs with clear acceptance criteria using an AI agent.</span>
           </div>
         </div>
@@ -908,15 +896,15 @@
         </div>
         <div class="exp-bullets">
           <div class="exp-bullet">
-            <span class="exp-bullet-tag tag-analytics">Analytics</span>
+
             <span class="exp-bullet-text">Built <strong style="color:var(--text)">Power BI dashboards</strong> that automated manual reporting, improving data accuracy and giving leadership real-time visibility into program performance.</span>
           </div>
           <div class="exp-bullet">
-            <span class="exp-bullet-tag tag-lead">Leadership</span>
+
             <span class="exp-bullet-text">Directed an offshore team of <span class="metric">12 analysts</span>, setting priorities and clearing blockers to keep delivery quality consistent.</span>
           </div>
           <div class="exp-bullet">
-            <span class="exp-bullet-tag tag-program">Program</span>
+
             <span class="exp-bullet-text">Delivered <span class="metric">30+ RFIs</span> and program documentation supporting <span class="metric">$3.7M</span> in managed contract budgets; validated system access for <span class="metric">1,800+ employees</span> during a secure migration with zero compliance gaps.</span>
           </div>
         </div>
